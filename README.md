@@ -12,36 +12,69 @@ Currently it supports:
 - pin digit view's dot view can be configured
 - keyboard layout can be configured
 
+## Classes
+
+SwiftPin consists of 4 classes:
+
+- PinView
+- PinViewInput
+- PinViewOutput
+- Key
+
+### PinView
+
+This view is receiving input from the PinViewInput and forwarding that input to PinViewOutput. it also sends PinEvents to the delegate
+
+### PinViewInput
+
+This view is responsible for displaying a keyboard for input of the digits.
+
+### PinViewOutput
+
+This view is responsible for displaying the amount of digits entered and the amount of digits still to enter.
+
+### Key
+
+Definition of the keys we support for input.
+Currently this is numbers from 0 - 9, option and backspace
+
+
 ## Installation
+
+### Cococapods
+
+add pod:
+
+``` swift
+pod 'PinView', :git => 'https://github.com/0xPr0xy/PinView.git'
 ```
-pod 'SwiftPin', :git => 'https://github.com/0xPr0xy/SwiftPin.git'
-```
+and install with `pod install`
 
 ## Usage
 
-In your view controller xib file,
-Add a view and add constraints for it's size.
-Then set it's class to `PinView` and connect it to your ViewController:
+In your UIViewController xib or storyboard,
+Add a UIView and add constraints for size and positioning in it's super view.
+Then set the UIView class to `PinView` and it's module to `SwiftPin` and connect it to your ViewController:
 
-```
+``` swift
 @IBOutlet weak var pinView: PinView!
 ```
 
 Import the library:
 
-```
+``` swift
 import PinView
 ```
 
-Then set the ViewController as it's delegate:
+Then set the UIViewController as delegate of `PinView`:
 
-```
+``` swift
 pinView.delegate = self
 ```
 
-Implement the PinViewDelegate protocol:
+Implement the `PinViewDelegate` protocol:
 
-```
+``` swift
 extension UnlockViewController: PinViewDelegate {
 
     var clearInputOnCompleted: Bool { return false }
@@ -52,9 +85,9 @@ extension UnlockViewController: PinViewDelegate {
 }
 ```
 
-Implement the PinViewConfigurationProvider protocol:
+Implement the `PinViewConfigurationProvider` protocol:
 
-```
+``` swift
 extension UnlockViewController: PinViewConfigurationProvider {
 
     var pinInputViewConfiguration: PinInputViewConfiguration {
@@ -75,3 +108,4 @@ Standard
 Custom
 
 ![custom](screenshots/custom.png)
+
