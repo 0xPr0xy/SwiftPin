@@ -6,7 +6,7 @@
 //
 import Foundation
 
-enum Key {
+public enum Key {
     
     case zero, one, two, three, four, five, six, seven, eight, nine
     case option, backspace, empty

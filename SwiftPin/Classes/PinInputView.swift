@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol PinInputDelegate: class {
+public protocol PinInputDelegate: class {
     func itemSelected(_ item: Key)
 }
 
-struct PinInputViewConfiguration {
+public struct PinInputViewConfiguration {
     
     let layout: [[Key]]
     let buttonStyleClosure: ((UIButton, Key) -> Void)?
@@ -22,6 +22,11 @@ struct PinInputViewConfiguration {
                                       [.seven, .eight, .nine],
                                       [.option, .zero, .backspace]],
                              buttonStyleClosure: nil)
+    }
+    
+    public init(layout: [[Key]], buttonStyleClosure: ((UIButton, Key) -> Void)?) {
+        self.layout = layout
+        self.buttonStyleClosure = buttonStyleClosure
     }
 }
 

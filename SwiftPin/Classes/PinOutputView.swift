@@ -14,7 +14,7 @@ protocol PinOutput {
     func update(_ digits: [Int])
 }
 
-struct PinOutputViewConfiguration {
+public struct PinOutputViewConfiguration {
     
     let maxDigits: Int
     let customDigitViewClosure: ((Bool) -> UIView)?
@@ -24,6 +24,14 @@ struct PinOutputViewConfiguration {
         return PinOutputViewConfiguration(maxDigits: 5,
                              customDigitViewClosure: nil,
                              overrideCircleViewClosure: nil)
+    }
+    
+    public init(maxDigits: Int,
+                customDigitViewClosure: ((Bool) -> UIView)?,
+                overrideCircleViewClosure: ((Bool, UIView) -> UIView)?) {
+        self.maxDigits = maxDigits
+        self.customDigitViewClosure = customDigitViewClosure
+        self.overrideCircleViewClosure = overrideCircleViewClosure
     }
 }
 

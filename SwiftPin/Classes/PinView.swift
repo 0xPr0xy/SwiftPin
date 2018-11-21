@@ -7,30 +7,30 @@
 
 import UIKit
 
-enum PinEvent {
+public enum PinEvent {
     case inputChanged(current: [Int])
     case inputCompleted(current: [Int])
     case optionPressed
     case backspacePressed
 }
 
-protocol PinViewDelegate: class {
+public protocol PinViewDelegate: class {
     func handle(_ event: PinEvent)
     var clearInputOnCompleted: Bool { get }
 }
 
-protocol PinViewConfigurationProvider {
+public protocol PinViewConfigurationProvider {
     var pinOutputViewConfiguration: PinOutputViewConfiguration { get }
     var pinInputViewConfiguration: PinInputViewConfiguration { get }
 }
 
 
-class PinView: UIView {
+public class PinView: UIView {
     
     // MARK: - Public Properties
     
     /// Delegate of this component
-    var delegate: (PinViewDelegate & PinViewConfigurationProvider)? {
+    public var delegate: (PinViewDelegate & PinViewConfigurationProvider)? {
         didSet {
             guard let delegate = delegate else { return }
             input.configuration = delegate.pinInputViewConfiguration
@@ -116,7 +116,7 @@ extension PinView: PinInputDelegate {
     /// Pin Input
     ///
     /// - Parameter item: the selected item
-    func itemSelected(_ item: Key) {
+    public func itemSelected(_ item: Key) {
         switch item.type {
         
         case .backspace:
