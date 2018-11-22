@@ -2,9 +2,9 @@
 
 ## Features
 
-This project aims at providing a PinView that is configurable for multiple use cases.
+This project aims at providing a PinView usable for capturing and displaying input of digits
 
-Currently it supports:
+Configuration Options:
 
 - pin length can be configured
 - keyboard button can be configured
