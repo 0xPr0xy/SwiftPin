@@ -46,7 +46,7 @@ Currently this is numbers from 0 - 9, option and backspace
 add pod:
 
 ``` swift
-pod 'PinView', :git => 'https://github.com/0xPr0xy/PinView.git'
+pod 'SwiftPin', :git => 'https://github.com/0xPr0xy/SwiftPin.git'
 ```
 and install with `pod install`
 
