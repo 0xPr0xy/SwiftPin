@@ -16,7 +16,7 @@ public struct PinInputViewConfiguration {
     let layout: [[Key]]
     let buttonStyleClosure: ((UIButton, Key) -> Void)?
     
-    static var standard: PinInputViewConfiguration {
+    public static var standard: PinInputViewConfiguration {
         return PinInputViewConfiguration(layout: [[.one, .two, .three],
                                       [.four, .five, .six],
                                       [.seven, .eight, .nine],
