@@ -20,7 +20,7 @@ public struct PinOutputViewConfiguration {
     let customDigitViewClosure: ((Bool) -> UIView)?
     let overrideCircleViewClosure: ((Bool, UIView) -> UIView)?
     
-    static var standard: PinOutputViewConfiguration {
+    public static var standard: PinOutputViewConfiguration {
         return PinOutputViewConfiguration(maxDigits: 5,
                              customDigitViewClosure: nil,
                              overrideCircleViewClosure: nil)
