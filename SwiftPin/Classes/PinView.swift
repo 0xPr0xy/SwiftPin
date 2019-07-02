@@ -146,7 +146,13 @@ extension PinView: PinInputDelegate {
                 
                 // optional clear input
                 if delegate?.clearInputOnCompleted ?? true {
-                    clearInput()
+                    if #available(iOS 10.0, *) {
+                        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
+                            self.clearInput()
+                        }
+                    } else {
+                        clearInput()
+                    }
                 }
             } else {
                 delegate?.handle(.inputChanged(current: digits)) // inputChanged event
